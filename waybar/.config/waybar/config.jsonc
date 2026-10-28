@@ -1,0 +1,81 @@
+{
+	"layer": "top",
+    "position": "top",
+	"mode": "dock",
+	"margin-left": 0,
+	"margin-right": 0,
+	"margin-top":0,
+    "margin-bottom":8,
+  "modules-left":["clock","network", "custom/spotify"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["tray", "memory", "cpu", "temperature", "pulseaudio"],
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon}{volume}%",
+                "on-click": "pavucontrol && blueman-manager",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+	"persistent-workspaces":{
+	"DP-1":[1,2,3,4,5,6,7,8,9],
+	"DP-2":[1,2,3,4,5,6,7,8,9]
+	}
+    },
+    "clock": {
+	"tooltip":false,
+        "format": " {:%R 󰃭 %a,%b %d}",
+	"interval":1
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {}%",
+        "max-length": 10,
+        "on-click": "kitty -e btop"
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {}%",
+        "max-length": 10,
+        "on-click": "kitty -e btop"
+    },
+    "network": {
+        "interface": "enp42s0",
+        "format": "{ifname}",
+        "format-alt": "󰈁 Connected",
+        "format-ethernet": " {bandwidthDownBytes}   {bandwidthUpBytes}",
+        "format-disconnected": "<span color=\"#7E3E44\">󰈂 Disconnected</span>",
+        "tooltip-format-ethernet": "{ipaddr} ",
+        "tooltip-format-disconnected": "<span color=\"#7E3E44\">✈</span>",
+        "on-click-right": "curl -s -4 https://icanhazip.com | wl-copy",
+        "max-length": 50,
+        "interval": 2
+    },
+    "custom/spotify": {
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "killall spotify",
+        "smooth-scrolling-threshold": 5, 
+        "on-scroll-up" : "playerctl -p spotify next",
+        "on-scroll-down" : "playerctl -p spotify previous",
+        "exec": "$HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null",    
+        "exec-if": "pgrep spotify"
+    },
+    "temperature": {
+        "hwmon-path": ["/sys/class/hwmon/hwmon1/temp1_input"],
+        // "critical-threshold": 80, // You can uncomment and set your critical threshold here
+        // "format-critical": "{temperatureC}°C ", // And its format
+        "format": " {temperatureC}°C"
+    },
+    "tray": {
+        "icon-size": 16,
+        "max-length": 50
+    }
+}

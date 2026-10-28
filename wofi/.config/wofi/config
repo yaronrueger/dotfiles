@@ -1,0 +1,6 @@
+font=Hack Nerd Font Medium 10
+width=900
+height=600
+mode=run
+lines=8
+style=~/.config/wofi/style.css

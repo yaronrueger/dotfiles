@@ -1,0 +1,22 @@
+# Hypr wallpapers (user-specific)
+hypr/.config/hypr/images/
+hypr/.config/hypr/images2/
+hypr/.config/hypr/wallpapers/*
+!hypr/.config/hypr/wallpapers/README.md
+
+# Logs
+*.log
+**/install.log
+**/*.log
+
+# Fish
+fish/.config/fish/fish_variables
+
+# Caches
+**/.cache/
+**/__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

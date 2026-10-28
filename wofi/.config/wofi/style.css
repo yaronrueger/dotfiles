@@ -1,0 +1,63 @@
+/* Colors */
+:root {
+    --bg:rgba(16, 22, 40, 0);
+    --fg: #cbdaf3;
+    --blue: #86bef7ff;
+    --selected-bg: rgba(255, 0, 0, 0.7); 
+    --text: #86bef7ff;
+}
+
+/* Main window */
+window {
+    background-color: var(--bg);
+    color: var(--fg);
+    border-radius: 8px;
+    border: none;
+}
+
+/* Input area */
+#input {
+    background-color: var(--bg);
+    color: var(--fg);
+    padding: 12px 3px;
+    border: none;
+}
+
+/* Prompt styling */
+#prompt {
+    background-color: var(--bg);
+    color: var(--fg);
+    padding: 12px;
+}
+
+/* List view */
+#entry {
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 10px 0;
+    border: none;
+}
+
+#entry:selected {
+    background-color: var(--selected-bg);
+    color: var(--text);
+}
+
+/* Icon styling */
+#entry image {
+    margin-right: 10px;
+    padding: 10px 10px;
+}
+
+/* Remove spacing/margins */
+box, list, row, #outer-box, #main {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* General */
+* {
+    font-family: "Hack Nerd Font Medium", monospace;
+    font-size: 10pt;
+}

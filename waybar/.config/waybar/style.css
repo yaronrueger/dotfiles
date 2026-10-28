@@ -1,0 +1,249 @@
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+
+/* COLORS */
+
+
+/* overline-inspired dark theme */
+@define-color text-primary              #d8dee9;
+@define-color text-secondary            #1f2430;
+@define-color text-muted                #8b93a6;
+@define-color text-highlight            #c7d0e0;
+
+@define-color bg-bar                    #141824;
+@define-color bg-sidebar                rgba(30, 35, 49, 0.96);
+@define-color bg-tooltip                rgba(17, 21, 30, 0.98);
+
+@define-color border-default            rgba(255, 255, 255, 0.08);
+@define-color border-strong             rgba(255, 255, 255, 0.14);
+
+@define-color status-error              #f38ba8;
+@define-color status-warning            #f9e2af;
+@define-color status-success            #a6e3a1;
+@define-color status-muted              #fab387;
+
+@define-color critical                  #f38ba8;
+@define-color warning                   #f9e2af;
+
+@define-color window-unused             #4b5263;
+
+@define-color window-primary-visible    #e2e8f0;
+@define-color window-primary-hidden     #94a3b8;
+@define-color window-secondary-hidden   #6b7280;
+@define-color window-secondary-visible  #cbd5e1;
+
+
+/* Reset all styles */
+* {
+  background-color: transparent;
+  border: none;
+  min-height: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+
+/* The whole bar */
+#waybar,
+window#waybar {
+  background-color: @bg-bar;
+  color: @text-primary;
+  font-family: "Hack Nerd Font";
+  font-weight: 500;
+  border-radius: 0;
+  border: none;
+  margin: 0;
+}
+
+
+/* Tooltips */
+tooltip {
+  color: @text-primary;
+  background-color: @bg-tooltip;
+  text-shadow: none;
+  border-radius: 5px;
+  border: 1px solid @border-default;
+}
+
+
+/* Shared module styling */
+#memory,
+#cpu,
+#pulseaudio,
+#clock,
+#network,
+#temperature,
+#custom-spotify,
+#tray {
+  padding: 0 8px;
+  min-height: 20px;
+  border-radius: 5px;
+  border: 1px solid @border-default;
+  margin: 8px 3px;
+  background: @bg-sidebar;
+  color: @text-primary;
+}
+
+
+/* Each module that should blink */
+#mode,
+#memory,
+#temperature {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical {
+  color: @critical;
+  border-color: @critical;
+}
+
+
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning {
+  background: @warning;
+  color: @text-secondary;
+  border-color: transparent;
+}
+
+
+/* Each warning that should blink */
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+
+
+/* Workspaces */
+#workspaces {
+  background: @bg-sidebar;
+  color: @text-primary;
+  border: 1px solid @border-default;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 8px 8px;
+}
+
+
+#workspaces button {
+  color: @window-secondary-hidden;
+  border-radius: 999px;
+  padding: 0 6px;
+  margin: 1px 1px;
+  min-width: 22px;
+  transition: all 0.2s ease;
+}
+
+
+#workspaces button.urgent {
+  color: @status-error;
+}
+
+
+#workspaces button.hosting-monitor.visible {
+  color: @window-primary-visible;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+#workspaces button.hosting-monitor:not(.visible):not(.empty) {
+  color: @window-primary-hidden;
+}
+
+
+#workspaces button:not(.hosting-monitor).visible {
+  color: @window-secondary-visible;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+
+#workspaces button:not(.hosting-monitor):not(.visible):not(.empty) {
+  color: @window-secondary-hidden;
+}
+
+
+#workspaces button.empty {
+  color: @window-unused;
+}
+
+
+/* Memory */
+#memory.warning {
+  color: @status-warning;
+}
+
+
+#memory.critical {
+  color: @status-error;
+}
+
+
+/* CPU */
+#cpu.warning {
+  color: @status-warning;
+}
+
+
+#cpu.critical {
+  color: @status-error;
+}
+
+
+/* Network */
+#network {
+  margin-left: 8px;
+  min-width: 175px;
+}
+
+
+/* Pulseaudio */
+#pulseaudio.muted {
+  color: @status-error;
+}
+
+
+#pulseaudio.source-muted {
+  color: @status-muted;
+}
+
+
+/* Clock */
+#clock {
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+
+/* Spotify */
+#custom-spotify {
+  margin-left: 8px;
+}
+
+
+/* Tray */
+#tray {
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
