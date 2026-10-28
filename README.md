@@ -19,4 +19,3 @@ stow fish hypr kitty waybar rofi wofi aerospace starship spicetify
 
 - **Hyprland**: Uses `hyprland.lua`. Place your wallpaper in `hypr/.config/hypr/wallpapers/` and update `hyprpaper.conf` accordingly.
 - **Fish**: `fish_variables` is not tracked as it's machine-specific.
-- **Aerospace**: Included for both Linux and macOS setups.
