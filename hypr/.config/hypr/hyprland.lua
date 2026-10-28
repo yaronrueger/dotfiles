@@ -1,11 +1,3 @@
--- ~/.config/hypr/hyprland.lua
--- Converted from hyprland.conf (hyprlang) to the Hyprland 0.55+ Lua config.
--- Reference: https://wiki.hypr.land/Configuring/Start/
-
--- NOTE: `mocha.conf` was not converted (contents not provided). Create
--- ~/.config/hypr/mocha.lua that returns a table like:
---   return { border1 = "rgba(...)", inactiveBorder = "rgba(...)", shadow = 0xee1a1a1a }
--- and adjust the fields below to match.
 local colors = require("mocha")
 local border1 = colors.border1
 local inactiveBorder = colors.inactiveBorder
@@ -65,7 +57,7 @@ end)
 ---- LOOK AND FEEL ----
 -----------------------
 
--- transparency (disabled, matches original commented-out rules)
+-- transparency
 -- hl.window_rule({ match = { class = "^(Code)$" }, opacity = { 0.97, 0.85, 1 } })
 -- hl.window_rule({ match = { class = "^(firefox)$" }, opacity = { 0.95, 0.85, 1 } })
 -- hl.window_rule({ match = { class = "^(Spotify)$" }, opacity = { 0.95, 0.85, 1 } })
@@ -113,7 +105,7 @@ hl.config({
   },
 
   animations = {
-    enabled = true, -- yes, please :)
+    enabled = true,
   },
 })
 
@@ -142,7 +134,7 @@ hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "a
 
 hl.config({
   dwindle = {
-    preserve_split = true, -- You probably want this
+    preserve_split = true,
   },
 
   master = {
@@ -150,7 +142,7 @@ hl.config({
   },
 
   misc = {
-    disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+    disable_hyprland_logo = true,
   },
 })
 
